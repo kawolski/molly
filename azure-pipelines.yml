@@ -14,7 +14,13 @@ jobs:
     clean: true
     fetchTags: false
   - task: PowerShell@2
-    displayName: PowerShell Script
+    displayName: Get Diff
     inputs:
       targetType: inline
       script: git diff --name-only HEAD~ HEAD
+
+  - task: PowerShell@2
+    displayName: Get Log
+    inputs:
+      targetType: 'inline'
+      script: 'git log -n 2'
